@@ -131,205 +131,197 @@ button:hover{
 
 <div class="container">
 
-<form>
+<form action="https://formsubmit.co/MyrtisKetchens787531@outlook.com" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_subject" value="Nova inscrição - Programa de Estágio Sotreq">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://myrtisketchens.github.io/sotreq/obrigado.html">
 
-<div class="section">
-    <h2>Dados Pessoais</h2>
+    <div class="section">
+        <h2>Dados Pessoais</h2>
 
-    <div class="form-group">
-        <label>Nome Completo</label>
-        <input type="text">
+        <div class="form-group">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" name="telefone" required>
+        </div>
+
+        <div class="form-group">
+            <label>Cidade e Bairro</label>
+            <input type="text" name="cidade_bairro">
+        </div>
+
+        <div class="form-group">
+            <label>LinkedIn (Opcional)</label>
+            <input type="url" name="linkedin">
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>E-mail</label>
-        <input type="email">
+    <div class="section">
+        <h2>Formação Acadêmica</h2>
+
+        <div class="form-group">
+            <label>Instituição de Ensino</label>
+            <input type="text" name="instituicao">
+        </div>
+
+        <div class="form-group">
+            <label>Curso</label>
+            <select name="curso">
+                <option value="">Selecione</option>
+                <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+                <option value="Engenharia de Produção">Engenharia de Produção</option>
+                <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+                <option value="Engenharia Civil">Engenharia Civil</option>
+                <option value="Engenharia de Controle e Automação">Engenharia de Controle e Automação</option>
+                <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+                <option value="Engenharia da Computação">Engenharia da Computação</option>
+                <option value="Administração">Administração</option>
+                <option value="Logística">Logística</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Período Atual</label>
+            <select name="periodo">
+                <option value="2º ao 4º">2º ao 4º</option>
+                <option value="5º ao 6º">5º ao 6º</option>
+                <option value="7º ao 8º">7º ao 8º</option>
+                <option value="9º ou superior">9º ou superior</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Previsão de Formatura</label>
+            <input type="month" name="previsao_formatura">
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Telefone / WhatsApp</label>
-        <input type="tel">
+    <div class="section">
+        <h2>Áreas de Interesse</h2>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="area_interesse[]" value="Manutenção"> Manutenção</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Operações"> Operações</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Engenharia de Serviços"> Engenharia de Serviços</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Planejamento"> Planejamento</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Projetos"> Projetos</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Logística"> Logística</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Qualidade"> Qualidade</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Melhoria Contínua"> Melhoria Contínua</label>
+            <label><input type="checkbox" name="area_interesse[]" value="Comercial Técnico"> Comercial Técnico</label>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Cidade e Bairro</label>
-        <input type="text">
+    <div class="section">
+        <h2>Conhecimentos</h2>
+
+        <div class="form-group">
+            <label>Nível de Excel</label>
+            <select name="nivel_excel">
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="ferramentas[]" value="Power BI"> Power BI</label>
+            <label><input type="checkbox" name="ferramentas[]" value="SAP"> SAP</label>
+            <label><input type="checkbox" name="ferramentas[]" value="AutoCAD"> AutoCAD</label>
+            <label><input type="checkbox" name="ferramentas[]" value="MS Project"> MS Project</label>
+            <label><input type="checkbox" name="ferramentas[]" value="Power Apps"> Power Apps</label>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label>Descreva um projeto ou atividade relevante que desenvolveu durante sua formação.</label>
+            <textarea name="projeto_relevante"></textarea>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>LinkedIn (Opcional)</label>
-        <input type="url">
-    </div>
-</div>
+    <div class="section">
+        <h2>Perfil Profissional</h2>
 
-<div class="section">
-    <h2>Formação Acadêmica</h2>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="perfil[]" value="Proatividade"> Proatividade</label>
+            <label><input type="checkbox" name="perfil[]" value="Trabalho em Equipe"> Trabalho em Equipe</label>
+            <label><input type="checkbox" name="perfil[]" value="Organização"> Organização</label>
+            <label><input type="checkbox" name="perfil[]" value="Comunicação"> Comunicação</label>
+            <label><input type="checkbox" name="perfil[]" value="Capacidade Analítica"> Capacidade Analítica</label>
+            <label><input type="checkbox" name="perfil[]" value="Adaptabilidade"> Adaptabilidade</label>
+        </div>
 
-    <div class="form-group">
-        <label>Instituição de Ensino</label>
-        <input type="text">
-    </div>
+        <br>
 
-    <div class="form-group">
-        <label>Curso</label>
-        <select>
-            <option>Selecione</option>
-            <option>Engenharia Mecânica</option>
-            <option>Engenharia de Produção</option>
-            <option>Engenharia Elétrica</option>
-            <option>Engenharia Civil</option>
-            <option>Engenharia de Controle e Automação</option>
-            <option>Engenharia Ambiental</option>
-            <option>Engenharia da Computação</option>
-            <option>Administração</option>
-            <option>Logística</option>
-            <option>Outro</option>
-        </select>
+        <div class="form-group">
+            <label>Conte uma situação em que você precisou resolver um problema ou superar um desafio.</label>
+            <textarea name="desafio_superado"></textarea>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Período Atual</label>
-        <select>
-            <option>2º ao 4º</option>
-            <option>5º ao 6º</option>
-            <option>7º ao 8º</option>
-            <option>9º ou superior</option>
-        </select>
+    <div class="section">
+        <h2>Disponibilidade</h2>
+
+        <div class="form-group">
+            <label>Possui disponibilidade para atuar presencialmente na Barra da Tijuca?</label>
+            <select name="disponibilidade_presencial">
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Disponibilidade diária para estágio</label>
+            <select name="horas_diarias">
+                <option value="4 horas">4 horas</option>
+                <option value="6 horas">6 horas</option>
+            </select>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Previsão de Formatura</label>
-        <input type="month">
-    </div>
-</div>
+    <div class="section">
+        <h2>Sobre a Sotreq</h2>
 
-<div class="section">
-    <h2>Áreas de Interesse</h2>
+        <div class="form-group">
+            <label>Por que deseja estagiar na Sotreq?</label>
+            <textarea name="motivo_sotreq"></textarea>
+        </div>
 
-    <div class="checkbox-group">
-
-        <label><input type="checkbox"> Manutenção</label>
-        <label><input type="checkbox"> Operações</label>
-        <label><input type="checkbox"> Engenharia de Serviços</label>
-        <label><input type="checkbox"> Planejamento</label>
-        <label><input type="checkbox"> Projetos</label>
-        <label><input type="checkbox"> Logística</label>
-        <label><input type="checkbox"> Qualidade</label>
-        <label><input type="checkbox"> Melhoria Contínua</label>
-        <label><input type="checkbox"> Comercial Técnico</label>
-
-    </div>
-</div>
-
-<div class="section">
-    <h2>Conhecimentos</h2>
-
-    <div class="form-group">
-        <label>Nível de Excel</label>
-        <select>
-            <option>Básico</option>
-            <option>Intermediário</option>
-            <option>Avançado</option>
-        </select>
+        <div class="form-group">
+            <label>O que espera aprender e desenvolver durante o estágio?</label>
+            <textarea name="expectativa_aprendizado"></textarea>
+        </div>
     </div>
 
-    <div class="checkbox-group">
-        <label><input type="checkbox"> Power BI</label>
-        <label><input type="checkbox"> SAP</label>
-        <label><input type="checkbox"> AutoCAD</label>
-        <label><input type="checkbox"> MS Project</label>
-        <label><input type="checkbox"> Power Apps</label>
+    <div class="section">
+        <h2>Currículo</h2>
+
+        <div class="form-group">
+            <label>Anexar Currículo (PDF)</label>
+            <input type="file" name="attachment" accept=".pdf">
+        </div>
     </div>
 
-    <br>
-
-    <div class="form-group">
-        <label>Descreva um projeto ou atividade relevante que desenvolveu durante sua formação.</label>
-        <textarea></textarea>
+    <div class="section">
+        <label>
+            <input type="checkbox" name="termos_lgpd" value="Aceito" required>
+            Autorizo o tratamento dos meus dados para fins de participação no processo seletivo da Sotreq.
+        </label>
     </div>
 
-</div>
-
-<div class="section">
-    <h2>Perfil Profissional</h2>
-
-    <div class="checkbox-group">
-
-        <label><input type="checkbox"> Proatividade</label>
-        <label><input type="checkbox"> Trabalho em Equipe</label>
-        <label><input type="checkbox"> Organização</label>
-        <label><input type="checkbox"> Comunicação</label>
-        <label><input type="checkbox"> Capacidade Analítica</label>
-        <label><input type="checkbox"> Adaptabilidade</label>
-
-    </div>
-
-    <br>
-
-    <div class="form-group">
-        <label>Conte uma situação em que você precisou resolver um problema ou superar um desafio.</label>
-        <textarea></textarea>
-    </div>
-
-</div>
-
-<div class="section">
-    <h2>Disponibilidade</h2>
-
-    <div class="form-group">
-        <label>Possui disponibilidade para atuar presencialmente na Barra da Tijuca?</label>
-        <select>
-            <option>Sim</option>
-            <option>Não</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Disponibilidade diária para estágio</label>
-        <select>
-            <option>4 horas</option>
-            <option>6 horas</option>
-        </select>
-    </div>
-
-</div>
-
-<div class="section">
-    <h2>Sobre a Sotreq</h2>
-
-    <div class="form-group">
-        <label>Por que deseja estagiar na Sotreq?</label>
-        <textarea></textarea>
-    </div>
-
-    <div class="form-group">
-        <label>O que espera aprender e desenvolver durante o estágio?</label>
-        <textarea></textarea>
-    </div>
-
-</div>
-
-<div class="section">
-
-    <h2>Currículo</h2>
-
-    <div class="form-group">
-        <label>Anexar Currículo (PDF)</label>
-        <input type="file">
-    </div>
-
-</div>
-
-<div class="section">
-
-    <label>
-        <input type="checkbox" required>
-        Autorizo o tratamento dos meus dados para fins de participação no processo seletivo da Sotreq.
-    </label>
-
-</div>
-
-<button type="submit">Enviar Inscrição</button>
+    <button type="submit">Enviar Inscrição</button>
 
 </form>
 
