@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Aluno | Programa de Estágio Sotreq</title>
+
+<style>
+:root{
+    --sotreq-yellow:#FFD100;
+    --sotreq-black:#1F1F1F;
+    --sotreq-gray:#F4F4F4;
+    --sotreq-darkgray:#666666;
+    --sotreq-red:#C0392B;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--sotreq-gray);
+    color:#333;
+    line-height:1.6;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.header{
+    background:var(--sotreq-black);
+    border-top:8px solid var(--sotreq-yellow);
+    color:white;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.header h1{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#ddd;
+    font-size:1.05rem;
+}
+
+.login-wrap{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+}
+
+.login-card{
+    background:white;
+    border-radius:12px;
+    padding:40px 35px;
+    max-width:400px;
+    width:100%;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border-top:4px solid var(--sotreq-yellow);
+}
+
+.login-card h2{
+    color:var(--sotreq-black);
+    margin-bottom:8px;
+    font-size:1.4rem;
+}
+
+.login-card .subtitle{
+    color:var(--sotreq-darkgray);
+    font-size:0.92rem;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    color:var(--sotreq-black);
+    margin-bottom:6px;
+    font-size:0.92rem;
+}
+
+input[type="text"],
+input[type="password"]{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:18px;
+    font-size:1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+    outline:none;
+    border-color:var(--sotreq-yellow);
+}
+
+.btn-entrar{
+    width:100%;
+    background:var(--sotreq-yellow);
+    color:black;
+    border:none;
+    padding:14px;
+    border-radius:8px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-entrar:hover{
+    background:#e6bc00;
+}
+
+.erro{
+    display:none;
+    background:#fdecea;
+    border:1px solid var(--sotreq-red);
+    color:var(--sotreq-red);
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:0.9rem;
+    margin-bottom:18px;
+}
+
+.erro.show{
+    display:block;
+}
+
+.footer{
+    text-align:center;
+    color:var(--sotreq-darkgray);
+    margin:20px 0;
+    font-size:0.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Área do Aluno</h1>
+    <p>Programa de Estágio Sotreq | Barra da Tijuca</p>
+</div>
+
+<div class="login-wrap">
+    <div class="login-card">
+        <h2>Acompanhe sua inscrição</h2>
+        <p class="subtitle">Entre com o e-mail que você usou na inscrição.</p>
+
+        <div class="erro" id="erroMsg">E-mail não encontrado. Confira e tente novamente.</div>
+
+        <form id="loginForm">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" placeholder="Ex: joao@gmail.com" autocomplete="off" required inputmode="email">
+
+            <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+    </div>
+</div>
+
+<div class="footer">© Programa de Estágio | Todos os direitos reservados</div>
+
+<script src="alunos.js"></script>
+<script>
+function normalizaEmail(txt){
+    return (txt || "").trim().toLowerCase();
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const emailDigitado = normalizaEmail(document.getElementById("email").value);
+    const erroMsg = document.getElementById("erroMsg");
+
+    const aluno = ALUNOS.find(a => normalizaEmail(a.email) === emailDigitado);
+
+    if(aluno){
+        sessionStorage.setItem("sotreq_aluno_email", aluno.email);
+        window.location.href = "portal.html";
+    } else {
+        erroMsg.classList.add("show");
+    }
+});
+</script>
+
+</body>
+</html>
