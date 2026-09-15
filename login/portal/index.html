@@ -254,7 +254,7 @@ body{
 
 <div id="naoAutorizado">
     <p>Sua sessão expirou ou você não está logado.</p>
-    <p><a href="login.html">Voltar para o login</a></p>
+    <p><a href="../index.html">Voltar para o login</a></p>
 </div>
 
 <div id="conteudo">
@@ -300,11 +300,11 @@ body{
 
 </div>
 
-<script src="alunos.js"></script>
+<script src="../alunos.js"></script>
 <script>
 function sair(){
     sessionStorage.removeItem("sotreq_aluno_email");
-    window.location.href = "login.html";
+    window.location.href = "../index.html";
 }
 
 const emailLogado = (sessionStorage.getItem("sotreq_aluno_email") || "").toLowerCase();
