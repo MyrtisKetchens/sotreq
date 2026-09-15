@@ -163,7 +163,23 @@ body{
     font-size:0.88rem;
 }
 
-.estudo-caso-box{
+.etapa-toggle{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:var(--sotreq-darkgray);
+    font-size:1rem;
+    margin-left:auto;
+    padding:4px 8px;
+    transition:transform .2s;
+    flex-shrink:0;
+}
+
+.etapa-toggle.aberto{
+    transform:rotate(180deg);
+}
+
+.estudo-caso-box, .info-box{
     margin-top:15px;
     padding:18px;
     background:#fffde6;
@@ -171,9 +187,21 @@ body{
     border-radius:8px;
 }
 
-.estudo-caso-box p{
+.info-box{
+    display:none;
+}
+
+.info-box.aberto{
+    display:block;
+}
+
+.estudo-caso-box p, .info-box p{
     font-size:0.92rem;
     margin-bottom:12px;
+}
+
+.estudo-caso-box p:last-child, .info-box p:last-child{
+    margin-bottom:0;
 }
 
 .estudo-caso-box iframe{
@@ -346,6 +374,9 @@ if(!aluno){
             statusTexto = "Em andamento";
         }
 
+        const temCurriculo = nomeEtapa === "Inscrição" && aluno.curriculoUrl;
+        const temReuniao = nomeEtapa === "Entrevista";
+
         li.className = "etapa " + statusClasse;
         li.innerHTML = `
             <div class="etapa-bolinha">${bolinha}</div>
@@ -353,22 +384,25 @@ if(!aluno){
                 <strong>${nomeEtapa}</strong>
                 <span>${statusTexto}</span>
             </div>
+            ${(temCurriculo || temReuniao) ? '<button type="button" class="etapa-toggle" aria-label="Mostrar mais">▼</button>' : ''}
         `;
 
         listaEtapas.appendChild(li);
 
-        if(nomeEtapa === "Inscrição" && aluno.curriculoUrl){
-            const box = document.createElement("div");
-            box.className = "estudo-caso-box";
+        let box = null;
+
+        if(temCurriculo){
+            box = document.createElement("div");
+            box.className = "info-box";
             box.innerHTML = `
                 <p><a href="${aluno.curriculoUrl}" target="_blank" rel="noopener"><strong>Ver currículo enviado (PDF)</strong></a></p>
             `;
             listaEtapas.appendChild(box);
         }
 
-        if(nomeEtapa === "Entrevista"){
-            const box = document.createElement("div");
-            box.className = "estudo-caso-box";
+        if(temReuniao){
+            box = document.createElement("div");
+            box.className = "info-box";
             let textoReuniao = "Ainda indisponível";
             if(aluno.reuniaoData){
                 textoReuniao = aluno.reuniaoData;
@@ -380,6 +414,14 @@ if(!aluno){
                 <p><strong>Data e Link da Reunião:</strong> ${textoReuniao}</p>
             `;
             listaEtapas.appendChild(box);
+        }
+
+        if(box){
+            const toggleBtn = li.querySelector(".etapa-toggle");
+            toggleBtn.addEventListener("click", () => {
+                box.classList.toggle("aberto");
+                toggleBtn.classList.toggle("aberto");
+            });
         }
 
         if(nomeEtapa === "Estudo de Caso" && index === aluno.etapaAtual){
