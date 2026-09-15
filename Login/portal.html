@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Inscrição | Programa de Estágio Sotreq</title>
+
+<style>
+:root{
+    --sotreq-yellow:#FFD100;
+    --sotreq-black:#1F1F1F;
+    --sotreq-gray:#F4F4F4;
+    --sotreq-darkgray:#666666;
+    --sotreq-green:#2E7D32;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--sotreq-gray);
+    color:#333;
+    line-height:1.6;
+}
+
+.header{
+    background:var(--sotreq-black);
+    border-top:8px solid var(--sotreq-yellow);
+    color:white;
+    padding:35px 20px;
+}
+
+.header-inner{
+    max-width:950px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.header h1{
+    font-size:1.6rem;
+}
+
+.header p{
+    color:#ddd;
+    font-size:0.95rem;
+}
+
+.btn-sair{
+    background:transparent;
+    border:1px solid var(--sotreq-yellow);
+    color:var(--sotreq-yellow);
+    padding:8px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:0.9rem;
+}
+
+.btn-sair:hover{
+    background:var(--sotreq-yellow);
+    color:black;
+}
+
+.container{
+    max-width:950px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border-top:4px solid var(--sotreq-black);
+}
+
+.perfil h2{
+    color:var(--sotreq-black);
+    font-size:1.5rem;
+    margin-bottom:4px;
+}
+
+.perfil-tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.tag{
+    background:var(--sotreq-gray);
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:0.88rem;
+    color:var(--sotreq-black);
+    font-weight:bold;
+}
+
+.section-title{
+    color:var(--sotreq-black);
+    border-left:6px solid var(--sotreq-yellow);
+    padding-left:12px;
+    margin-bottom:20px;
+    font-size:1.3rem;
+}
+
+.etapas{
+    list-style:none;
+}
+
+.etapa{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    padding:14px 0;
+    border-bottom:1px solid var(--sotreq-gray);
+}
+
+.etapa:last-child{
+    border-bottom:none;
+}
+
+.etapa-bolinha{
+    flex-shrink:0;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.9rem;
+    font-weight:bold;
+    color:white;
+    background:#ccc;
+}
+
+.etapa.concluida .etapa-bolinha{
+    background:var(--sotreq-green);
+}
+
+.etapa.atual .etapa-bolinha{
+    background:var(--sotreq-yellow);
+    color:black;
+}
+
+.etapa-texto strong{
+    display:block;
+    color:var(--sotreq-black);
+    font-size:1.02rem;
+}
+
+.etapa-texto span{
+    color:var(--sotreq-darkgray);
+    font-size:0.88rem;
+}
+
+.estudo-caso-box{
+    margin-top:15px;
+    padding:18px;
+    background:#fffde6;
+    border:1px solid var(--sotreq-yellow);
+    border-radius:8px;
+}
+
+.estudo-caso-box p{
+    font-size:0.92rem;
+    margin-bottom:12px;
+}
+
+.estudo-caso-box iframe{
+    width:100%;
+    height:520px;
+    border:none;
+    border-radius:6px;
+    background:white;
+}
+
+.contato-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.contato-avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--sotreq-black);
+    color:var(--sotreq-yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:1.2rem;
+    flex-shrink:0;
+}
+
+.contato-info strong{
+    display:block;
+    color:var(--sotreq-black);
+}
+
+.contato-info a{
+    color:var(--sotreq-darkgray);
+    text-decoration:none;
+    font-size:0.92rem;
+}
+
+.contato-info a:hover{
+    text-decoration:underline;
+}
+
+.footer{
+    text-align:center;
+    color:var(--sotreq-darkgray);
+    margin:40px 0 20px 0;
+    font-size:0.9rem;
+}
+
+#carregando, #naoAutorizado{
+    text-align:center;
+    padding:80px 20px;
+    color:var(--sotreq-darkgray);
+}
+
+#naoAutorizado{
+    display:none;
+}
+
+#naoAutorizado a{
+    color:var(--sotreq-black);
+    font-weight:bold;
+}
+
+#conteudo{
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="carregando">Carregando...</div>
+
+<div id="naoAutorizado">
+    <p>Sua sessão expirou ou você não está logado.</p>
+    <p><a href="login.html">Voltar para o login</a></p>
+</div>
+
+<div id="conteudo">
+
+    <div class="header">
+        <div class="header-inner">
+            <div>
+                <h1>Minha Inscrição</h1>
+                <p>Programa de Estágio Sotreq | Barra da Tijuca</p>
+            </div>
+            <button class="btn-sair" onclick="sair()">Sair</button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card perfil">
+            <h2 id="nomeAluno"></h2>
+            <div class="perfil-tags">
+                <span class="tag" id="areaAluno"></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Etapas do Processo</h3>
+            <ul class="etapas" id="listaEtapas"></ul>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Seu Entrevistador</h3>
+            <div class="contato-box">
+                <div class="contato-avatar" id="entrevistadorInicial"></div>
+                <div class="contato-info">
+                    <strong id="entrevistadorNome"></strong>
+                    <a id="entrevistadorEmail" href="#"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">© Programa de Estágio | Todos os direitos reservados</div>
+
+</div>
+
+<script src="alunos.js"></script>
+<script>
+function sair(){
+    sessionStorage.removeItem("sotreq_aluno_email");
+    window.location.href = "login.html";
+}
+
+const emailLogado = (sessionStorage.getItem("sotreq_aluno_email") || "").toLowerCase();
+const aluno = ALUNOS.find(a => a.email.toLowerCase() === emailLogado);
+
+document.getElementById("carregando").style.display = "none";
+
+if(!aluno){
+    document.getElementById("naoAutorizado").style.display = "block";
+} else {
+    document.getElementById("conteudo").style.display = "block";
+
+    document.getElementById("nomeAluno").textContent = aluno.nomeCompleto;
+    document.getElementById("areaAluno").textContent = aluno.area;
+
+    document.getElementById("entrevistadorNome").textContent = ENTREVISTADOR.nome;
+    document.getElementById("entrevistadorEmail").textContent = ENTREVISTADOR.email;
+    document.getElementById("entrevistadorEmail").href = "mailto:" + ENTREVISTADOR.email;
+    document.getElementById("entrevistadorInicial").textContent = ENTREVISTADOR.nome.charAt(0);
+
+    const listaEtapas = document.getElementById("listaEtapas");
+
+    ETAPAS.forEach((nomeEtapa, index) => {
+        const li = document.createElement("li");
+        let statusClasse = "pendente";
+        let statusTexto = "Pendente";
+        let bolinha = String(index + 1);
+
+        if(index < aluno.etapaAtual){
+            statusClasse = "concluida";
+            statusTexto = "Concluída";
+            bolinha = "✓";
+        } else if(index === aluno.etapaAtual){
+            statusClasse = "atual";
+            statusTexto = "Em andamento";
+        }
+
+        li.className = "etapa " + statusClasse;
+        li.innerHTML = `
+            <div class="etapa-bolinha">${bolinha}</div>
+            <div class="etapa-texto">
+                <strong>${nomeEtapa}</strong>
+                <span>${statusTexto}</span>
+            </div>
+        `;
+
+        listaEtapas.appendChild(li);
+
+        if(nomeEtapa === "Estudo de Caso" && index === aluno.etapaAtual){
+            const box = document.createElement("div");
+            box.className = "estudo-caso-box";
+            box.innerHTML = `
+                <p><strong>Envie seu estudo de caso</strong> (PDF, Word ou apresentação) pelo formulário abaixo:</p>
+                <iframe src="${FORM_ESTUDO_DE_CASO_URL}">Carregando…</iframe>
+            `;
+            listaEtapas.appendChild(box);
+        }
+    });
+}
+</script>
+
+</body>
+</html>
