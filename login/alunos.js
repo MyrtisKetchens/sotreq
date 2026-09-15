@@ -24,7 +24,8 @@ const ETAPAS = [
 
 const ENTREVISTADOR = {
   nome: "Ricardo Esposito",
-  email: "ricardo.esposito@outlook.com.br"
+  email: "ricardo.esposito@outlook.com.br",
+  emailContato: "contato@estagiosotreq.site"
 };
 
 // Link do Google Form usado na etapa de Estudo de Caso (aceita PDF, Word e apresentação)

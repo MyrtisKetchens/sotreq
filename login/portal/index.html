@@ -211,6 +211,7 @@ body{
 }
 
 .contato-info a{
+    display:block;
     color:var(--sotreq-darkgray);
     text-decoration:none;
     font-size:0.92rem;
@@ -290,6 +291,7 @@ body{
                 <div class="contato-info">
                     <strong id="entrevistadorNome"></strong>
                     <a id="entrevistadorEmail" href="#"></a>
+                    <a id="entrevistadorEmailContato" href="#"></a>
                 </div>
             </div>
         </div>
@@ -323,6 +325,8 @@ if(!aluno){
     document.getElementById("entrevistadorNome").textContent = ENTREVISTADOR.nome;
     document.getElementById("entrevistadorEmail").textContent = ENTREVISTADOR.email;
     document.getElementById("entrevistadorEmail").href = "mailto:" + ENTREVISTADOR.email;
+    document.getElementById("entrevistadorEmailContato").textContent = ENTREVISTADOR.emailContato;
+    document.getElementById("entrevistadorEmailContato").href = "mailto:" + ENTREVISTADOR.emailContato;
     document.getElementById("entrevistadorInicial").textContent = ENTREVISTADOR.nome.charAt(0);
 
     const listaEtapas = document.getElementById("listaEtapas");
