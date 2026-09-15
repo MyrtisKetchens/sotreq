@@ -357,6 +357,31 @@ if(!aluno){
 
         listaEtapas.appendChild(li);
 
+        if(nomeEtapa === "Inscrição" && aluno.curriculoUrl){
+            const box = document.createElement("div");
+            box.className = "estudo-caso-box";
+            box.innerHTML = `
+                <p><a href="${aluno.curriculoUrl}" target="_blank" rel="noopener"><strong>Ver currículo enviado (PDF)</strong></a></p>
+            `;
+            listaEtapas.appendChild(box);
+        }
+
+        if(nomeEtapa === "Entrevista"){
+            const box = document.createElement("div");
+            box.className = "estudo-caso-box";
+            let textoReuniao = "Ainda indisponível";
+            if(aluno.reuniaoData){
+                textoReuniao = aluno.reuniaoData;
+                if(aluno.reuniaoLink){
+                    textoReuniao += ` — <a href="${aluno.reuniaoLink}" target="_blank" rel="noopener">Link da reunião</a>`;
+                }
+            }
+            box.innerHTML = `
+                <p><strong>Data e Link da Reunião:</strong> ${textoReuniao}</p>
+            `;
+            listaEtapas.appendChild(box);
+        }
+
         if(nomeEtapa === "Estudo de Caso" && index === aluno.etapaAtual){
             const box = document.createElement("div");
             box.className = "estudo-caso-box";
